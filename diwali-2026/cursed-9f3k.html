@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Read this alone</title>
+<meta name="theme-color" content="#160e09">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#160e09;--candle:#e9b45a;--candle-hi:#ffd98f;--ember:#d8572f;--text:#efe4d2;--dim:#a8998a;--line:rgba(233,180,90,.22)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--candle-hi);outline-offset:3px}
+.wrap{max-width:38rem;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
+.hero{position:relative;min-height:92svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:3rem;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;bottom:-30%;width:150%;height:80%;transform:translateX(-50%);
+  background:radial-gradient(ellipse at 50% 70%, rgba(216,87,47,.42), rgba(233,140,50,.12) 35%, transparent 65%);
+  animation:breathe 2.6s ease-in-out infinite;pointer-events:none}
+@keyframes breathe{0%,100%{opacity:.75}40%{opacity:1}70%{opacity:.85}}
+.hero>*{position:relative}
+.kicker{font:italic 500 1.15rem "Bodoni Moda",serif;color:var(--ember);margin:0 0 1rem}
+h1{font:700 clamp(4rem,20vw,6.3rem)/.86 "Bodoni Moda",serif;letter-spacing:-.02em;margin:0 0 1.5rem}
+h1 span{display:block}
+.sub{font-size:1.15rem;margin:0 0 .5rem}
+.hush{color:var(--dim);margin:0}
+section{padding-top:3rem}
+h2{font:600 .95rem/1.3 "IBM Plex Sans",sans-serif;color:var(--candle);margin:0 0 .75rem;padding-top:.75rem;border-top:1px solid var(--line)}
+p{margin:0 0 1rem}
+ul,ol{margin:0 0 1rem;padding-left:1.25rem}
+li{margin:.5rem 0}
+ol li::marker{color:var(--candle);font-weight:600}
+.rules{list-style:none;padding:0}
+.rules li{padding:.2rem 0 .2rem 1.5rem;position:relative}
+.rules li::before{content:"";position:absolute;left:0;top:1em;width:.8rem;height:1px;background:var(--candle)}
+.whisper{margin:.75rem 0 .5rem;padding-left:1.1rem;border-left:1px solid var(--ember);font:italic 500 1.55rem/1.25 "Bodoni Moda",serif;color:var(--candle-hi)}
+.share{display:block;width:100%;margin:1.25rem 0 .5rem;padding:1rem;border:1px solid var(--candle);background:transparent;color:var(--candle-hi);font:600 1rem "IBM Plex Sans",sans-serif;cursor:pointer}
+.share:hover{background:rgba(233,180,90,.08)}
+.shared{min-height:1.5em;color:var(--dim);font-size:.9rem;text-align:center}
+footer{max-width:38rem;margin:0 auto;padding:4rem 1.5rem 4.5rem;font:italic 500 1.25rem "Bodoni Moda",serif;color:var(--dim)}
+@media (prefers-reduced-motion:reduce){.hero::before{animation:none}}
+</style>
+</head>
+<body>
+<header class="wrap hero">
+  <p class="kicker">Read this alone</p>
+  <h1><span>You've</span><span>been</span><span>cursed</span></h1>
+  <p class="sub">The thing you were just handed is cursed. Get rid of it.</p>
+  <p class="hush">Nobody else knows this game exists. Keep it that way.</p>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>The rules</h2>
+    <ul class="rules">
+      <li>The hosts secretly check who has it at random times all night. Each time it's you, your name goes on their list.</li>
+      <li>It has to stay with you. No putting it down, hiding it, or leaving it on a table. Get caught and your name goes on the list.</li>
+      <li>The only way out: someone takes it from your hand willingly. No tossing it, no forcing it.</li>
+      <li>Tell no one, except the person you pass it to.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Passing it on</h2>
+    <ol>
+      <li>Get someone to take it from your hand.</li>
+      <li>Once it's in their hand, lean in and whisper:
+        <p class="whisper">“That's cursed. Get rid of it. Don't tell anyone.”</p></li>
+      <li>Send them this page.</li>
+      <li>You're free. But if someone tricks you into taking it back, it's yours again.</li>
+    </ol>
+    <button class="share" id="share" type="button">Send this page</button>
+    <p class="shared" id="shared" aria-live="polite"></p>
+  </section>
+
+  <section>
+    <h2>End of the night</h2>
+    <p>One big reveal. The hosts read out who had it at every check. Everyone on the list pulls a punishment from the jar and performs. The most-caught gets the worst one.</p>
+  </section>
+
+  <section>
+    <h2>Tips</h2>
+    <ul class="rules">
+      <li>Ask for help: “Can you hold this while I grab a plate?”</li>
+      <li>Hand it over with a drink or a sweet.</li>
+      <li>Pick people who look busy or deep in conversation.</li>
+      <li>Act normal. Never look guilty.</li>
+      <li>Be suspicious when someone hands you something.</li>
+    </ul>
+  </section>
+</main>
+<footer>Now smile, and hand it over.</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('share'),msg=document.getElementById('shared');
+  btn.addEventListener('click',function(){
+    var url=location.href;
+    if(navigator.share){navigator.share({title:'Read this alone',url:url}).catch(function(){});}
+    else if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){msg.textContent='Link copied. Send it to them privately.'},function(){msg.textContent=url});}
+    else{msg.textContent=url}
+  });
+})();
+</script>
+</body>
+</html>
